@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="panel" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.recuperacio.MainController">
+
+   <children>
+      <!-- Imagen de fondo -->
+      <ImageView fitHeight="600.0" fitWidth="1000.0" preserveRatio="false">
+         <image>
+            <Image url="@/assets/images/2721187.png" />
+         </image>
+      </ImageView>
+
+      <!-- Contenedor principal vertical -->
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0">
+         
+         <!-- Barra superior con fondo blanco y título -->
+         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="1000.0" style="-fx-background-color: white;">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="BARGADOS COMICS">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+         </HBox>
+   
+            <!-- Botón centrado -->
+         <Button fx:id="userButton" mnemonicParsing="false" onAction="#ObrirCrear" prefHeight="30.0" prefWidth="150.0" text="ACCEDIR" textAlignment="CENTER">
+            <VBox.margin>
+               <Insets top="400.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+   </children>
+</AnchorPane>

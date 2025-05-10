@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="496.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.recuperacio.ControllerCrearManga">
+   <children>
+      <HBox layoutX="19.0" layoutY="59.0" prefHeight="498.0" prefWidth="81.0">
+         <children>
+            <ImageView fx:id="img" fitHeight="375.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <VBox fx:id="mangacontainer" prefHeight="474.0" prefWidth="291.0">
+               <children>
+                  <TextField fx:id="titol" promptText="Titol del manga">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="preu" promptText="Preu del manga">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label prefHeight="17.0" prefWidth="579.0" text="Selecciona l'autor" />
+                  <ChoiceBox fx:id="choiceBox" prefHeight="25.0" prefWidth="581.0" />
+                  <TextArea fx:id="sinopsi" prefHeight="68.0" prefWidth="581.0" promptText="Sinopsi">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextArea>
+                  <Label prefHeight="39.0" prefWidth="581.0" text="DETALLS">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Line endX="480.29290771484375" endY="-2.6213204860687256" startX="-100.0">
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </Line>
+                  <TextField fx:id="isbn" promptText="ISBN">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <DatePicker fx:id="picker" prefHeight="26.0" prefWidth="584.0">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <TextField fx:id="pags" promptText="Numero de pagines">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button fx:id="buttonLoadImage" mnemonicParsing="false" onAction="#actionLoadImage" prefHeight="25.0" prefWidth="584.0" text="Pujar Foto" />
+               </children>
+            </VBox>
+         </children></HBox>
+      <Button fx:id="editButton" layoutX="897.0" layoutY="34.0" mnemonicParsing="false" onAction="#crearManga" text="CREAR" />
+      <Button fx:id="backButton" layoutX="785.0" layoutY="34.0" mnemonicParsing="false" onAction="#Enrere" text="ENRERE" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="496.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.recuperacio.ControllerTenda">
+   <children>
+      <HBox layoutX="19.0" layoutY="59.0" prefHeight="498.0" prefWidth="81.0">
+         <children>
+            <ImageView fx:id="img" fitHeight="375.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <VBox fx:id="mangacontainer" prefHeight="474.0" prefWidth="291.0">
+               <children>
+                  <TextField fx:id="titol" editable="false">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="preu" editable="false" text="PRECIO">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="autor" editable="false" text="AUTOR">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextArea fx:id="sinopsi" editable="false" prefHeight="68.0" prefWidth="581.0" text="SINOPSIS">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextArea>
+                  <Label prefHeight="39.0" prefWidth="581.0" text="DETALLS">
+                     <VBox.margin>
+                        <Insets right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Line endX="480.29290771484375" endY="-2.6213204860687256" startX="-100.0">
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </Line>
+                  <TextField fx:id="isbn" editable="false" text="ISBN">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="data" editable="false" text="FECHA DE VENTA">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="pags" editable="false" text="NUM PAGS">
+                     <VBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+         </children></HBox>
+      <Button fx:id="backButton" layoutX="899.0" layoutY="34.0" mnemonicParsing="false" onAction="#goToMainView" text="ENRERE" />
+   </children>
+</AnchorPane>

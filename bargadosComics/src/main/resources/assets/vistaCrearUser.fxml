@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.recuperacio.ControllerCrearUser">
+    
+    <VBox alignment="TOP_CENTER" layoutY="117.0" spacing="20" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="117.0">
+        
+        <!-- Título -->
+        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="CREAR COMPTE" />
+
+        <!-- Contenedor principal del formulario -->
+        <VBox alignment="CENTER" maxWidth="800" prefHeight="275.0" prefWidth="489.0" spacing="15">
+            
+            <!-- Nombre y Apellidos -->
+            <HBox alignment="CENTER" spacing="20">
+                <VBox prefHeight="47.0" prefWidth="441.0" spacing="5">
+                    <Label text="NOM" />
+                    <TextField fx:id="nom" prefWidth="350" />
+                </VBox>
+                <VBox prefHeight="47.0" prefWidth="464.0" spacing="5">
+                    <Label text="COGNOMS" />
+                    <TextField fx:id="cognom" prefWidth="350" />
+                </VBox>
+            </HBox>
+
+            <!-- DNI y Correo -->
+            <VBox spacing="5">
+                <VBox prefHeight="47.0" prefWidth="441.0" spacing="5">
+                    <Label text="DNI" />
+                    <TextField fx:id="dni" prefWidth="350" />
+                </VBox>
+                <Label text="CORREU" />
+                <TextField fx:id="correu" prefWidth="720" />
+            </VBox>
+
+            <!-- Contraseña y Confirmar -->
+            <HBox alignment="CENTER" spacing="20">
+                
+                <!-- Campo Contraseña con visibilidad alternable -->
+                <VBox prefHeight="80.0" prefWidth="444.0" spacing="5">
+                    <Label text="CONTRASENYA" />
+                    <StackPane>
+                        <PasswordField fx:id="password" prefWidth="350" />
+                        <TextField fx:id="pass_text" prefWidth="350" visible="false" />
+                    </StackPane>
+                    <CheckBox fx:id="Veure" onAction="#veurePassword" text="Mostrar contrasenya" />
+                </VBox>
+
+                <!-- Confirmar contraseña -->
+                <VBox prefHeight="80.0" prefWidth="444.0" spacing="5">
+                    <Label text="CONFIRMAR  CONTRASENYA" />
+                    <StackPane>
+                        <PasswordField fx:id="ConfirmarPassword" prefWidth="350" />
+                        <TextField fx:id="pass_text2" prefWidth="350" visible="false" />
+                    </StackPane>
+                    <CheckBox fx:id="Veure2" onAction="#veureComprobar" text="Mostrar contrasenya" />
+                </VBox>
+            </HBox>
+
+            <!-- Botón Crear -->
+            <Button fx:id="crearButton" mnemonicParsing="false" onAction="#crearUsuari" prefHeight="25.0" prefWidth="866.0" text="CREAR COMPTE" />
+        </VBox>
+    </VBox>
+
+    <!-- Botón Atrás -->
+    <Button fx:id="backButton" layoutX="822.0" layoutY="14.0" mnemonicParsing="false" onAction="#Enrere" prefHeight="25.0" prefWidth="154.0" text="ENRERE" />
+</AnchorPane>
