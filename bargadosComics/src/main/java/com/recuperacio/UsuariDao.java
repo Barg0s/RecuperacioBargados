@@ -1,5 +1,8 @@
 package com.recuperacio;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -83,4 +86,59 @@ public class UsuariDao {
         String sql = "DELETE FROM usuaris WHERE dni = '" + dni + "'";
         db.update(sql);
     }
-}    
+
+
+public boolean existeixDni(String dni) {
+    AppData db = AppData.getInstance();
+    String sql = "SELECT COUNT(*) AS total FROM usuaris WHERE dni = '" + dni + "'";
+    ArrayList<HashMap<String, Object>> result = db.query(sql);
+
+    if (!result.isEmpty()) {
+        Object totalObj = result.get(0).get("total");
+        int count = 0;
+
+        if (totalObj instanceof Number) {
+            count = ((Number) totalObj).intValue();
+        } else if (totalObj instanceof String) {
+            try {
+                count = Integer.parseInt((String) totalObj);
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        }
+
+        return count > 0;
+    }
+
+    return false;
+}
+
+
+public boolean existeixCorreu(String correu) {
+    AppData db = AppData.getInstance();
+    String sql = "SELECT COUNT(*) AS total FROM usuaris WHERE email = '" + correu + "'";
+    ArrayList<HashMap<String, Object>> result = db.query(sql);
+
+    if (!result.isEmpty()) {
+        Object totalObj = result.get(0).get("total");
+        int count = 0;
+
+        if (totalObj instanceof Number) {
+            count = ((Number) totalObj).intValue();
+        } else if (totalObj instanceof String) {
+            try {
+                count = Integer.parseInt((String) totalObj);
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        }
+
+        return count > 0;
+    }
+
+    return false;
+}
+
+
+
+}

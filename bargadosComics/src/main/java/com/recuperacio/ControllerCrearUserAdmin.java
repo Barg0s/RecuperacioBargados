@@ -64,9 +64,28 @@ public class ControllerCrearUserAdmin {
     
     @FXML
     private void Enrere(ActionEvent event) throws Exception {
+        //MainController crtl = (MainController) UtilsViews.getController("ViewTaula");
 
+        //crtl.loadView("/assets/vistaPrincipal.fxml");
         UtilsViews.setViewAnimating("ViewTaula");
+        //try {
+            // Cargar la nueva vista desde el archivo FXML
+          //  URL resource = this.getClass().getResource("/assets/vistaPrincipal.fxml");
+            
 
+            //FXMLLoader loader = new FXMLLoader(resource);
+            //Parent itemPane = loader.load();
+            
+            //UtilsViews.setView("ViewDetalls"); 
+            
+            //Scene scene = new Scene(itemPane);
+            //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //stage.setScene(scene);
+            
+        //} catch (IOException e2) {
+           // e2.printStackTrace(); 
+
+        //}
     }
 
 
@@ -95,14 +114,13 @@ public class ControllerCrearUserAdmin {
         UsuariDao usuariDao = new UsuariDao();
         usuariDao.add(usuariNou);
         System.out.println("usuari creat");
-        UtilsViews.setViewAnimating("ViewMain");
+        UtilsViews.setViewAnimating("ViewTaula");
 
 
     }
 
 
     
-
 
 public static boolean comprobarDNI(String dni) {
         if (dni == null || !dni.matches("\\d{8}[A-Z]")) {
@@ -115,7 +133,9 @@ public static boolean comprobarDNI(String dni) {
 
         return letraIntroducida == letraCorrecta;
     }
+
     public Usuari ComprobarValors() {
+        UsuariDao usuari1 = new UsuariDao();
         String nomText = nom.getText().trim();
         String cognomsText = cognom.getText().trim();
         String passswordText = password.getText();
@@ -127,7 +147,16 @@ public static boolean comprobarDNI(String dni) {
             mostrarAlerta("Cap camp pot estar buit.");
             return null;
         }
-    
+
+        if (usuari1.existeixDni(dniText)) {
+            mostrarAlerta("El DNI ja està registrat.");
+
+            return null;
+        }
+        if (usuari1.existeixCorreu(correuText)) {
+            mostrarAlerta("El correu ja està registrat.");
+            return null;
+        }
         if (!comprobarDNI(dniText)) {
             mostrarAlerta("El DNI no és vàlid.");
             return null;
@@ -145,6 +174,9 @@ public static boolean comprobarDNI(String dni) {
     
         return new Usuari(nomText, cognomsText, passswordText, "client", correuText, dniText);
     }
+    
+    
+    
     
     
     

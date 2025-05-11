@@ -18,6 +18,12 @@
             <Label prefHeight="14.0" prefWidth="581.0" />
             <Label text="DNI" />
             <TextField fx:id="dni" editable="false" />
+            <Label text="EMAIL" />
+            <TextField fx:id="mail" editable="false">
+               <VBox.margin>
+                  <Insets right="20.0" />
+               </VBox.margin>
+            </TextField>
             <Label text="NOM" />
             <TextField fx:id="nom">
                <VBox.margin>
@@ -26,12 +32,6 @@
             </TextField>
             <Label text="COGNOM" />
             <TextField fx:id="cognoms">
-               <VBox.margin>
-                  <Insets right="20.0" />
-               </VBox.margin>
-            </TextField>
-            <Label text="EMAIL" />
-            <TextField fx:id="mail">
                <VBox.margin>
                   <Insets right="20.0" />
                </VBox.margin>

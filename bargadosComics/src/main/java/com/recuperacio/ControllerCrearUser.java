@@ -135,6 +135,7 @@ public static boolean comprobarDNI(String dni) {
         return letraIntroducida == letraCorrecta;
     }
     public Usuari ComprobarValors() {
+        UsuariDao usuari1 = new UsuariDao();
         String nomText = nom.getText().trim();
         String cognomsText = cognom.getText().trim();
         String passswordText = password.getText();
@@ -146,7 +147,16 @@ public static boolean comprobarDNI(String dni) {
             mostrarAlerta("Cap camp pot estar buit.");
             return null;
         }
-    
+
+        if (usuari1.existeixDni(dniText)) {
+            mostrarAlerta("El DNI ja està registrat.");
+
+            return null;
+        }
+        if (usuari1.existeixCorreu(correuText)) {
+            mostrarAlerta("El correu ja està registrat.");
+            return null;
+        }
         if (!comprobarDNI(dniText)) {
             mostrarAlerta("El DNI no és vàlid.");
             return null;

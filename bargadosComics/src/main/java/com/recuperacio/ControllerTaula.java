@@ -119,7 +119,7 @@ public class ControllerTaula implements Initializable {
                     
                     break;
                 case "usuaris":
-                    UtilsViews.setViewAnimating("ViewCrearAdmin");
+                    UtilsViews.setViewAnimating("ViewClientsAdmin");
                     
                     break;
                 case "autor":

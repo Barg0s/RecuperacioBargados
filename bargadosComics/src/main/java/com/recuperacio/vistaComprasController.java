@@ -154,6 +154,29 @@ public class vistaComprasController {
             // TODO: handle exception
         }
     }
+
+
+    public void Tornar() {
+        // Reiniciar el total
+        total.setText("0,00");
+
+        // Vaciar el carrito
+        carritoGlobal.vaciar();
+
+        // Limpiar la vista del carrito (si es necesario)
+        carritoContenido.getChildren().clear();
+
+        // Actualizar cualquier otro estado visual si es necesario
+        // Por ejemplo, si el carrito está visible, puedes ocultarlo
+        carro.setVisible(false);
+        carrito.setVisible(true);
+        logout.setVisible(true);
+        
+        // Recalcular el precio total y actualizar la vista
+        preuTotal = 0.0f;  // Resetear la variable preuTotal
+        total.setText(String.format("%.2f", preuTotal));  // Asegurarse de mostrarlo como "0,00"
+    }
+
     public void Mangas() {
         AppData db = AppData.getInstance();
         String sql = "SELECT id_manga, titol, preu, portada FROM manga";

@@ -68,7 +68,9 @@ mangaDao.update(3, mangaNuevo);
         UtilsViews.addView(getClass(), "ViewAutors", "/assets/vistaAutor.fxml");
         UtilsViews.addView(getClass(), "ViewCrearAutors", "/assets/vistaCrearAutor.fxml");
         UtilsViews.addView(getClass(), "ViewEditarClients", "/assets/vistaEditarClient.fxml");
+        UtilsViews.addView(getClass(), "ViewClientsAdmin", "/assets/vistaCrearUserAdmin.fxml");
         UtilsViews.addView(getClass(), "ViewCompras", "/assets/vistaCompras.fxml");
+
 
         UtilsViews.addView(getClass(), "ViewEditarAutor", "/assets/vistaEditarAutor.fxml");
         UtilsViews.addView(getClass(), "ViewEditar", "/assets/vistaEditar.fxml");
