@@ -36,7 +36,6 @@ public class ControllerEditarClients {
     }
 
     public void setUsuariDni(String dni) {
-        System.out.println("DNI recibido: " + dni);  // DEBUG
         this.dniUsuari = dni;
         cargarAutor();
     }
@@ -86,10 +85,8 @@ public class ControllerEditarClients {
     }
 
     private void cargarAutor() {
-        System.out.println("Cargando autor con DNI: " + dniUsuari);  // DEBUG
         String sql = "SELECT * FROM usuaris WHERE dni = '" + dniUsuari + "'";
         ArrayList<HashMap<String, Object>> autorData = obtenirAutor(sql);
-        System.out.println("Resultado query: " + autorData);  // DEBUG
         poblarCamps(autorData);
     }
     

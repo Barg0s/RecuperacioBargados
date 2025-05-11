@@ -67,12 +67,9 @@ public class Controller {
     
 @FXML
 private void abrirEditor(ActionEvent event) {
-        // Cargar la vista de editarManga.fxml
 
-        // Obtener el controlador de la vista de edición
         ControllerEditar crtl = (ControllerEditar) UtilsViews.getController("ViewEditar");
 
-        // Pasar la ID del manga actual al controlador de la vista de edición
         crtl.setMangaId(mangaId); 
         UtilsViews.setViewAnimating("ViewEditar");
 
@@ -119,13 +116,11 @@ private void abrirEditor(ActionEvent event) {
 
         ArrayList<HashMap<String, Object>> result = db.query(sql);
         
-        // Verificar los resultados de la consulta
         System.out.println("Resultado de la consulta: " + result);
         return result;
     }
 
     public void PoblarCamps(ArrayList<HashMap<String, Object>> query) {
-        System.out.println("PoblarCamps ejecutado");
         if (query != null && !query.isEmpty()) {
             HashMap<String, Object> map = query.get(0);
             
@@ -151,7 +146,7 @@ private void abrirEditor(ActionEvent event) {
                 pags.setText(pagsValue.toString());
                 data.setText(dataValue.toString());
 
-            //String imagePath = "assets/images/db01.png";  // Ruta relativa a los recursos
+            //String imagePath = "assets/images/db01.png"; 
             URL imageUrl = getClass().getResource("/" + imagePath);
             if (imageUrl != null) {
                 Image image = new Image(imageUrl.toExternalForm());

@@ -8,10 +8,9 @@ public class Carrito {
     private final List<Manga> items;
     private float preu;
 
-    // Constructor privado
     private Carrito() {
         this.items = new ArrayList<>();
-        this.preu = 0.0f;  // Inicializamos el precio a 0
+        this.preu = 0.0f;  
     }
 
     public static Carrito getInstance() {
@@ -21,43 +20,39 @@ public class Carrito {
         return instancia;
     }
 
-    // Método para agregar un manga al carrito
     public void agregar(Manga manga) {
         items.add(manga);
-        preu += manga.getPreu();  // Aumentamos el precio con el precio del manga añadido
+        preu += manga.getPreu(); 
     }
 
-    // Método para eliminar un manga del carrito
     public void eliminar(Manga manga) {
         items.remove(manga);
-        preu -= manga.getPreu();  // Restamos el precio del manga eliminado
+        preu -= manga.getPreu();  
     }
 
-    // Método para vaciar el carrito
     public void vaciar() {
-        items.clear();  // Limpiamos la lista de mangas
-        preu = 0.0f;  // Restablecemos el precio a 0
+        items.clear(); 
+        preu = 0.0f; 
     }
 
-    // Método para obtener el precio total del carrito
     public float getPreu() {
-        return this.preu;  // Devuelve el precio total
+        return this.preu;  
     }
 
-    // Método para establecer el precio total (aunque no parece necesario con getTotal)
     public void setPreu(float preu) {
-        this.preu = preu;  // Establece el precio manualmente, pero no lo usamos normalmente
+        this.preu = preu; 
     }
 
-    // Método para obtener los items del carrito
     public List<Manga> getItems() {
         return items;
     }
 
-    // Método para calcular el total de los items en el carrito
     public double getTotal() {
-        return items.stream()
-                    .mapToDouble(Manga::getPreu)
-                    .sum();  // Esto devuelve el total de la suma de los precios de los mangas en el carrito
+        double total = 0;
+        for (Manga manga : items) {
+            total += manga.getPreu();
+        }
+        return total;
     }
+
 }

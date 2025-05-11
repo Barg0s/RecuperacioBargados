@@ -139,8 +139,8 @@ public class ControllerTaula implements Initializable {
         if (tituloManga == null || tituloManga.isEmpty()) return false;
     
         String tituloEscapado = tituloManga.replace("'", "''");
-    
-        String sqlSelect = "SELECT id_manga FROM manga WHERE titol = '" + tituloEscapado + "'";
+        System.out.println(tituloEscapado);
+        String sqlSelect = "SELECT id_manga FROM manga WHERE titol = '" + tituloManga + "'";
         ArrayList<HashMap<String, Object>> resultados = AppData.getInstance().query(sqlSelect);
     
         if (resultados.isEmpty()) {
@@ -149,14 +149,15 @@ public class ControllerTaula implements Initializable {
         }
     
         int idManga = (int) resultados.get(0).get("id_manga");
-    
+        System.out.println(idManga);
         Stock stock = new Stock(idManga, nuevaCantidad);  
-        String sqlUpdate = "UPDATE stock SET quantitat = " + stock.getQuantitat() +
-                           ", estat = '" + stock.getEstat() + "' WHERE id_manga = " + stock.getIdManga();
-    
-        AppData.getInstance().update(sqlUpdate);
+        stockDao stockDao = new stockDao();
+        stockDao.update(idManga, stock);
+        vistaComprasController crtl = (vistaComprasController) UtilsViews.getController("ViewCompras");
+        crtl.Mangas();
+
         reload();
-    
+        
         return true;
     }
     

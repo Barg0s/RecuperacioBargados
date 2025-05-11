@@ -64,28 +64,9 @@ public class ControllerCrearUser {
     
     @FXML
     private void Enrere(ActionEvent event) throws Exception {
-        //MainController crtl = (MainController) UtilsViews.getController("ViewTaula");
 
-        //crtl.loadView("/assets/vistaPrincipal.fxml");
         UtilsViews.setViewAnimating("ViewMain");
-        //try {
-            // Cargar la nueva vista desde el archivo FXML
-          //  URL resource = this.getClass().getResource("/assets/vistaPrincipal.fxml");
-            
 
-            //FXMLLoader loader = new FXMLLoader(resource);
-            //Parent itemPane = loader.load();
-            
-            //UtilsViews.setView("ViewDetalls"); 
-            
-            //Scene scene = new Scene(itemPane);
-            //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(scene);
-            
-        //} catch (IOException e2) {
-           // e2.printStackTrace(); 
-
-        //}
     }
 
 
@@ -96,18 +77,13 @@ public class ControllerCrearUser {
     @FXML
     private void crearUsuari(){
 
-        String passwd = "";
-
         String nomChoiceBox = nom.getText();
         String cognomChoice = cognom.getText();
 
-        String dniText = dni.getText();
         System.out.println(nomChoiceBox);
         System.out.println(cognomChoice);
 
-        String mail = correu.getText();
         if (password.getText().equals(ConfirmarPassword.getText())){
-            passwd = password.getText();
 
         }
         Usuari usuariNou = ComprobarValors();

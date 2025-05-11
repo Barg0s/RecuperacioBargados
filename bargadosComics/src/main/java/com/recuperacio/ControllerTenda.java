@@ -21,7 +21,7 @@ import javafx.scene.text.Text;
 public class ControllerTenda {
 
 
-    private int mangaId;
+    public int mangaId;
 
     @FXML
     private Button buttonAdd;
@@ -52,7 +52,7 @@ public class ControllerTenda {
 
     @FXML
     private void goToMainView(ActionEvent event) throws Exception {
-        UtilsViews.setView("ViewCompras");  // Cambiar a la vista principal
+        UtilsViews.setView("ViewCompras");
     }
 
 
@@ -92,8 +92,6 @@ public class ControllerTenda {
 
         ArrayList<HashMap<String, Object>> result = db.query(sql);
         
-        // Verificar los resultados de la consulta
-        System.out.println("Resultado de la consulta: " + result);
         return result;
     }
 
@@ -124,7 +122,7 @@ public class ControllerTenda {
                 pags.setText(pagsValue.toString());
                 data.setText(dataValue.toString());
 
-            //String imagePath = "assets/images/db01.png";  // Ruta relativa a los recursos
+            //String imagePath = "assets/images/db01.png"; 
             URL imageUrl = getClass().getResource("/" + imagePath);
             if (imageUrl != null) {
                 Image image = new Image(imageUrl.toExternalForm());

@@ -16,8 +16,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 
 public class ControllerCrearAutor {
 
@@ -53,28 +51,7 @@ public class ControllerCrearAutor {
     
     @FXML
     private void Enrere(ActionEvent event) throws Exception {
-        //MainController crtl = (MainController) UtilsViews.getController("ViewTaula");
-
-        //crtl.loadView("/assets/vistaPrincipal.fxml");
         UtilsViews.setViewAnimating("ViewTaula");
-        //try {
-            // Cargar la nueva vista desde el archivo FXML
-          //  URL resource = this.getClass().getResource("/assets/vistaPrincipal.fxml");
-            
-
-            //FXMLLoader loader = new FXMLLoader(resource);
-            //Parent itemPane = loader.load();
-            
-            //UtilsViews.setView("ViewDetalls"); 
-            
-            //Scene scene = new Scene(itemPane);
-            //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(scene);
-            
-        //} catch (IOException e2) {
-           // e2.printStackTrace(); 
-
-        //}
     }
 
 
@@ -179,7 +156,6 @@ private void actionLoadImage() {
 
         ArrayList<HashMap<String, Object>> result = db.query(sql);
         
-        // Verificar los resultados de la consulta
         System.out.println("Resultado de la consulta: " + result);
         return result;
     }

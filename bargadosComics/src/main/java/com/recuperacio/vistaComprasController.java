@@ -1,6 +1,5 @@
 package com.recuperacio;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,7 +12,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,14 +55,12 @@ public class vistaComprasController {
     }
     public void rellenarCarro() {
         if (carritoContenido == null) {
-            System.out.println("carritoContenido no está enlazado!");
             return;
         }
 
         carritoContenido.getChildren().clear();
 
         if (carritoGlobal.getItems().isEmpty()) {
-            System.out.println("El carrito está vacío.");
         }
 
         for (Manga manga : carritoGlobal.getItems()) {
@@ -94,6 +90,7 @@ public class vistaComprasController {
         
     }
     private void ComprarManga(String titol) {
+        MangaDao mangaDao = new MangaDao();
         AppData db = AppData.getInstance();
     
         String sql = "SELECT * FROM manga WHERE titol = '" + titol + "'";
@@ -111,6 +108,7 @@ public class vistaComprasController {
             String portadaManga = manga.get("portada") != null ? manga.get("portada").toString() : "";
             int id = manga.get("id_manga") != null ? Integer.parseInt(manga.get("id_manga").toString()) : -1;
 
+
             Manga manga1 = new Manga(
                 id,
                 titolManga,
@@ -123,8 +121,10 @@ public class vistaComprasController {
                 pagsManga,
                 portadaManga
             );
-            preuTotal +=Float.parseFloat(preuManga)
-            ;
+            String updateSql = "UPDATE stock SET quantitat = quantitat - 1 WHERE id_manga = '" + id + "'";
+            db.update(updateSql);
+            int updatedQuantity = mangaDao.ObtenirQuantitatManga(id);
+            preuTotal +=Float.parseFloat(preuManga);
     
     
             carritoGlobal.agregar(manga1);
@@ -133,10 +133,7 @@ public class vistaComprasController {
     
         }
     
-        System.out.println("Mangas en el carrito:");
-        for (Manga m : carritoGlobal.getItems()) {
-            System.out.println("- " + m.getTitol());
-        }
+
     }
     
 
@@ -157,77 +154,100 @@ public class vistaComprasController {
 
 
     public void Tornar() {
-        // Reiniciar el total
         total.setText("0,00");
 
-        // Vaciar el carrito
         carritoGlobal.vaciar();
 
-        // Limpiar la vista del carrito (si es necesario)
         carritoContenido.getChildren().clear();
 
-        // Actualizar cualquier otro estado visual si es necesario
-        // Por ejemplo, si el carrito está visible, puedes ocultarlo
         carro.setVisible(false);
         carrito.setVisible(true);
         logout.setVisible(true);
         
-        // Recalcular el precio total y actualizar la vista
-        preuTotal = 0.0f;  // Resetear la variable preuTotal
-        total.setText(String.format("%.2f", preuTotal));  // Asegurarse de mostrarlo como "0,00"
+        preuTotal = 0.0f; 
+        total.setText(String.format("%.2f", preuTotal));  
     }
 
-    public void Mangas() {
-        AppData db = AppData.getInstance();
-        String sql = "SELECT id_manga, titol, preu, portada FROM manga";
-        ArrayList<HashMap<String, Object>> mangas = db.query(sql);
+public void Mangas() {
+    MangaDao mangaDao = new MangaDao();
+    AppData db = AppData.getInstance();
+    String sql = "SELECT id_manga, titol, preu, portada FROM manga";
+    ArrayList<HashMap<String, Object>> mangas = db.query(sql);
 
-        shop.getChildren().clear();
+    if (mangas.isEmpty()) {
+        return;
+    }
 
-        int row = 0;
-        int col = 0;
+    shop.getChildren().clear();
 
-        for (HashMap<String, Object> manga : mangas) {
-            String titulo = manga.get("titol").toString();
-            String preuString = manga.get("preu").toString();
-            String path = manga.get("portada").toString();
+    int row = 0;
+    int col = 0;
 
-            Label labelManga = new Label(titulo);
-            Label preu = new Label(preuString);
+    for (HashMap<String, Object> manga : mangas) {
+        String titulo = manga.containsKey("titol") ? manga.get("titol").toString() : "Desconocido";
+        String preuString = manga.containsKey("preu") ? manga.get("preu").toString() : "0.0";
+        String path = manga.containsKey("portada") ? manga.get("portada").toString() : "";
+        Integer id = manga.containsKey("id_manga") && manga.get("id_manga") != null ? (Integer) manga.get("id_manga") : -1;
+        
+        int quantitat = mangaDao.ObtenirQuantitatManga(id);
 
-            ImageView view = new ImageView();
-            view.setImage(new Image(path));
-            view.setFitWidth(150);
-            view.setFitHeight(150);
-            view.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent e) {
-                    ObrirFitxa(titulo);
-                }
-            });
-            
-            view.setPreserveRatio(true);
+        Label labelManga = new Label(titulo);
+        Label preu = new Label();
+        
+        if (quantitat == 0) {
+            preu.setText("Producte esgotat");
+        } else {
+            preu.setText(String.format("%.2f", Float.parseFloat(preuString)));
+        }
 
-            Button comprarBtn = new Button("Afegir");
-            comprarBtn.setOnAction(event -> {
-                ComprarManga(titulo); 
-                rellenarCarro();      
-                System.out.println(titulo + " añadido al carrito");
-            });
-
-            VBox container = new VBox();
-            container.getChildren().addAll(view, labelManga, preu, comprarBtn);
-
-            HBox mangaItem = new HBox();
-            mangaItem.getChildren().add(container);
-
-            shop.add(mangaItem, col, row);
-
-            col++;
-            if (col > 4) {
-                col = 0;
-                row++;
+        ImageView view = new ImageView();
+        view.setImage(new Image(path));
+        view.setFitWidth(150);
+        view.setFitHeight(150);
+        view.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                ObrirFitxa(titulo);
             }
+        });
+
+        view.setPreserveRatio(true);
+
+        Button comprarBtn = new Button("Afegir");
+        
+        if (quantitat == 0) {
+            comprarBtn.setDisable(true);
+        } else {
+            comprarBtn.setDisable(false);
+        }
+
+        comprarBtn.setOnAction(event -> {
+            ComprarManga(titulo);
+            rellenarCarro();
+
+            int updatedQuantity = mangaDao.ObtenirQuantitatManga(id);
+
+            if (updatedQuantity == 0) {
+                comprarBtn.setDisable(true);
+            }
+        });
+
+        VBox container = new VBox();
+        container.getChildren().addAll(view, labelManga, preu, comprarBtn);
+
+        HBox mangaItem = new HBox();
+        mangaItem.getChildren().add(container);
+
+        shop.add(mangaItem, col, row);
+
+        col++;
+        if (col > 4) {  
+            col = 0;
+            row++;
         }
     }
+}
+
+
+
 }

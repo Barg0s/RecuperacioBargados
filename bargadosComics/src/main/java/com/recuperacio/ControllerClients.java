@@ -47,7 +47,7 @@ public class ControllerClients {
     private void abrirEditor(ActionEvent event) {
         String dniSeleccionado = autorId;
         ControllerEditarClients crtl = (ControllerEditarClients) UtilsViews.getController("ViewEditarClients");
-        crtl.setUsuariDni(dniSeleccionado);  // Pasamos el DNI
+        crtl.setUsuariDni(dniSeleccionado);
 
         UtilsViews.setViewAnimating("ViewEditarClients");
     }
@@ -77,7 +77,7 @@ public class ControllerClients {
         "JOIN " +
         "    manga m ON rv.id_manga = m.id_manga " +
         "WHERE " +
-        "    u.dni = '" + id + "' " + // Aquí concatenamos el valor directamente
+        "    u.dni = '" + id + "' " +
         "ORDER BY " +
         "    rv.data_compra DESC";
         ArrayList<HashMap<String, Object>> mangas = db.query(sql);

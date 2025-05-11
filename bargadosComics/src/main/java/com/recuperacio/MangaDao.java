@@ -87,4 +87,14 @@ public class MangaDao implements Dao<Manga> {
         db.update(sql);
 
     }
+
+    public int ObtenirQuantitatManga(int idManga){
+        AppData db = AppData.getInstance();
+        String sql = "SELECT quantitat FROM stock WHERE id_manga = '" + idManga + "'";
+        ArrayList<HashMap<String, Object>> newIdResult = db.query(sql);
+
+        int quantitat = (Integer) newIdResult.get(0).get("quantitat");
+        return quantitat;
+
+    }
 }

@@ -95,7 +95,6 @@ public class ControllerLogin {
             UtilsViews.setView("ViewCompras");
 
             
-             //TODO
          } else {
              System.out.println("Contraseña incorrecta");
          }

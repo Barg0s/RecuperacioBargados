@@ -3,7 +3,6 @@ package com.recuperacio;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javafx.scene.control.Alert;
 
 public class autorDao implements Dao<Autor> {
 
@@ -60,11 +59,9 @@ public class autorDao implements Dao<Autor> {
         AppData db = AppData.getInstance();
 
         try {
-            // Primero borra los mangas del autor (si aplica)
             String sqlManga = "DELETE FROM manga WHERE id_autor = " + id;
             db.update(sqlManga);
 
-            // Luego borra el autor
             String sqlAutor = "DELETE FROM autor WHERE id = " + id;
             db.update(sqlAutor);
 

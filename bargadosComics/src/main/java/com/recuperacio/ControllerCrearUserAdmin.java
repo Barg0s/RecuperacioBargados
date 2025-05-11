@@ -64,28 +64,9 @@ public class ControllerCrearUserAdmin {
     
     @FXML
     private void Enrere(ActionEvent event) throws Exception {
-        //MainController crtl = (MainController) UtilsViews.getController("ViewTaula");
 
-        //crtl.loadView("/assets/vistaPrincipal.fxml");
         UtilsViews.setViewAnimating("ViewTaula");
-        //try {
-            // Cargar la nueva vista desde el archivo FXML
-          //  URL resource = this.getClass().getResource("/assets/vistaPrincipal.fxml");
-            
-
-            //FXMLLoader loader = new FXMLLoader(resource);
-            //Parent itemPane = loader.load();
-            
-            //UtilsViews.setView("ViewDetalls"); 
-            
-            //Scene scene = new Scene(itemPane);
-            //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(scene);
-            
-        //} catch (IOException e2) {
-           // e2.printStackTrace(); 
-
-        //}
+      
     }
 
 

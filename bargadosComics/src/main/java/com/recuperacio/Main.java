@@ -37,13 +37,10 @@ public class Main extends Application {
         Manga manga = new Manga("Dragon ball 22", 12, "Akira", "Toriyama", "prov", "123455", "1984-12-12", 10, "assets/images/db22.png");
         mangaDao.add(manga);
 
-        // Crear una instancia de MangaDao
 
-// Crear el objeto Manga con los nuevos valores
-Manga mangaNuevo = new Manga("Dragon ball 22", 12, "Tite", "Kubo", "prov", "123455", "1984-12-12", 10, "assets/images/db22.png");
+        Manga mangaNuevo = new Manga("Dragon ball 22", 12, "Tite", "Kubo", "prov", "123455", "1984-12-12", 10, "assets/images/db22.png");
 
-// Llamar al método update para actualizar el manga con id = 3
-mangaDao.update(3, mangaNuevo);
+        mangaDao.update(3, mangaNuevo);
 
         launch(args);
     }
@@ -51,7 +48,6 @@ mangaDao.update(3, mangaNuevo);
     @Override
     public void start(Stage stage) throws Exception {
 
-        // Carrega la vista inicial des del fitxer FXML
         UtilsViews.parentContainer.setStyle("-fx-font: 14 arial;");
         UtilsViews.addView(getClass(), "ViewMain", "/assets/vistaPrincipal.fxml");
 
@@ -78,7 +74,6 @@ mangaDao.update(3, mangaNuevo);
         UtilsViews.addView(getClass(), "ViewClients", "/assets/vistaClient.fxml");
         UtilsViews.addView(getClass(), "ViewPagament", "/assets/vistaPago.fxml");
 
-        AppData db = AppData.getInstance();
 
         Scene scene = new Scene(UtilsViews.parentContainer);
 

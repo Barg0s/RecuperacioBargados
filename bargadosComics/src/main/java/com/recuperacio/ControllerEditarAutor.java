@@ -40,15 +40,14 @@ public class ControllerEditarAutor {
     @FXML
     private Button backButton;
     
-    // Cambiados los campos para los nuevos datos
     @FXML
-    private TextField nom; // campo para el nombre
+    private TextField nom; 
     @FXML
-    private TextField cognom; // campo para el apellido
+    private TextField cognom; 
     @FXML
-    private TextField pais; // campo para el país
+    private TextField pais; 
     @FXML
-    private TextField anyNaixement; // campo para el año de nacimiento
+    private TextField anyNaixement; 
     
     private int autorId; 
     @FXML

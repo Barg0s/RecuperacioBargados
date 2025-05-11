@@ -90,7 +90,17 @@ public class Gestiodb {
             INSERT INTO stock (id_manga, quantitat, estat)
             VALUES 
             ('1', 100, 'En Stock'),
-            ('2', 150, 'En Stock');
+            ('2', 150, 'En Stock'),
+            ('3', 150, 'En Stock'),
+            ('4', 150, 'En Stock'),
+            ('5', 150, 'En Stock'),
+            ('6', 150, 'En Stock'),
+            ('7', 150, 'En Stock'),
+            ('8', 150, 'En Stock'),
+            ('9', 150, 'En Stock'),
+            ('10', 150, 'En Stock'),
+            ('11', 150, 'En Stock'),
+            ('12', 150, 'En Stock');
             """;
         
         db.update(sql);
