@@ -79,14 +79,8 @@ public class ControllerCrearUserAdmin {
 
         String passwd = "";
 
-        String nomChoiceBox = nom.getText();
-        String cognomChoice = cognom.getText();
 
-        String dniText = dni.getText();
-        System.out.println(nomChoiceBox);
-        System.out.println(cognomChoice);
 
-        String mail = correu.getText();
         if (password.getText().equals(ConfirmarPassword.getText())){
             passwd = password.getText();
 
@@ -94,7 +88,7 @@ public class ControllerCrearUserAdmin {
         Usuari usuariNou = ComprobarValors();
         UsuariDao usuariDao = new UsuariDao();
         usuariDao.add(usuariNou);
-        System.out.println("usuari creat");
+        mostrarMisstage("usuari creat");
         UtilsViews.setViewAnimating("ViewTaula");
 
 
@@ -157,10 +151,6 @@ public static boolean comprobarDNI(String dni) {
     }
     
     
-    
-    
-    
-    
     private static void mostrarAlerta(String missatge) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -168,7 +158,15 @@ public static boolean comprobarDNI(String dni) {
         alert.setContentText(missatge);
         alert.show();
     }
-    
+
+    private static void mostrarMisstage(String missatge) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION); 
+    alert.setTitle("Información");
+    alert.setHeaderText(null);
+    alert.setContentText(missatge);
+    alert.show();
+}
+  
 
    
 }

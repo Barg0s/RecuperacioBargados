@@ -1,32 +1,18 @@
 package com.recuperacio;
 
-import java.net.URL;
-import java.nio.file.Path;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.Action;
 
 import com.utils.UtilsViews;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import java.io.File;
-import java.io.IOException;
 
 
 public class ControllerLogin {

@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.nio.file.*;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
@@ -22,8 +23,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 
 
 public class ControllerEditarAutor {
@@ -69,15 +68,14 @@ public class ControllerEditarAutor {
 
     @FXML
     private void actualizarAutor() {
-        String nomAutor = nom.getText();
-        String cognomAutor = cognom.getText();
-        String paisAutor = pais.getText();
-        int anyNaixementAutor = Integer.parseInt(anyNaixement.getText());
+
         
         
-        Autor autorNou = new Autor(nomAutor, cognomAutor, paisAutor, anyNaixementAutor, imagePath);
+        Autor autorNou = ComprobarValors();
         autorDao autorDao = new autorDao();
         autorDao.update(autorId, autorNou);
+        mostrarMisstage("Autor Actualitzat correctament");
+        UtilsViews.setView("ViewTaula");
     }
 
     @FXML
@@ -101,7 +99,6 @@ public class ControllerEditarAutor {
 
                 Files.copy(selectedFile.toPath(), targetPath, StandardCopyOption.REPLACE_EXISTING); 
 
-                // Now, load the image
                 String imageURI = targetPath.toUri().toString();  
                 System.out.println("Image URI: " + imageURI);
                 Image image = new Image(imageURI);
@@ -162,4 +159,57 @@ public class ControllerEditarAutor {
             PoblarCamps(autorData);
         }
     }
+
+        public Autor ComprobarValors() {
+        String nomText = nom.getText();
+        String cognomsText = cognom.getText();
+        String paisText = pais.getText();
+        String anyText = anyNaixement.getText();
+        if (nomText.isEmpty() || cognomsText.isEmpty() || paisText.isEmpty() || anyText.isEmpty()) {
+            mostrarAlerta("Cap camp pot estar buit.");
+            return null;
+        }
+    
+
+
+        if  (nomText.isEmpty() || cognomsText.isEmpty()) {
+            mostrarAlerta("L'autor ha de tenir nom i cognom.");
+            return null;
+        }
+    
+    
+        if (!anyText.matches("\\d{4}")) {
+            mostrarAlerta("L'any ha de tenir exactament 4 dígits numèrics.");
+            return null;
+        }
+    
+        int anycomprobar;
+        try {
+            anycomprobar = Integer.parseInt(anyNaixement.getText());
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Ha de ser un un valor numeric");
+            return null;
+        }
+    
+
+    
+ 
+        return new Autor(nomText, cognomsText, paisText, anycomprobar, imagePath);
+    }
+
+        private static void mostrarAlerta(String missatge) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(missatge);
+        alert.show();
+    }
+        private static void mostrarMisstage(String missatge) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION); 
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(missatge);
+        alert.show();
+    }
+
 }

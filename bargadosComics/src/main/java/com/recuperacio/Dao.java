@@ -1,7 +1,6 @@
 package com.recuperacio;
 
 
-import java.util.ArrayList;
 
 /*
  * Defineix com es treballarà amb

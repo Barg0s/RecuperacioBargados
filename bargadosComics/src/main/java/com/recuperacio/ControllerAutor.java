@@ -73,7 +73,6 @@ public class ControllerAutor {
         obresContainer.getChildren().clear(); 
     
         for (HashMap<String, Object> manga : mangas) {
-            System.out.println(manga.get("titol"));
             String titulo = manga.get("titol").toString();
             Label labelManga = new Label(titulo);
             obresContainer.getChildren().add(labelManga); 
@@ -86,7 +85,6 @@ public class ControllerAutor {
     }
 
     public void initialize() {
-        System.out.println("Autor cargado: " + nom + " " + cognoms);
 
     }
 
@@ -100,8 +98,6 @@ public class ControllerAutor {
             PoblarCamps(autorData);
             mostrarObres(autorId);
 
-        } else {
-            System.out.println("No se encontraron datos para el autor con ID: " + idAutor);
         }
     }
 
@@ -131,10 +127,10 @@ public class ControllerAutor {
                 Image image = new Image(imageUrl.toExternalForm());
                 img.setImage(image);
             } else {
-                System.out.println("No se encontró la imagen: " + imagePath);
+                System.out.println("NO imatge");
             }
         } else {
-            System.out.println("La consulta no devolvió resultados.");
+            System.out.println("Error");
         }
     }
 }

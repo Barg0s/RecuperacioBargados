@@ -107,6 +107,8 @@ public class ControllerCrearManga {
         if (mangaNou != null) {
             MangaDao mangaDao = new MangaDao();
             mangaDao.add(mangaNou);
+            mostrarMisstage("Manga creat correctament!");
+            UtilsViews.setView("ViewTaula");
         }
     }
       
@@ -132,9 +134,7 @@ private void actionLoadImage() {
             Files.copy(selectedFile.toPath(), targetPath, StandardCopyOption.REPLACE_EXISTING); 
 
             String imageURI = targetPath.toUri().toString();  
-            System.out.println("Image URI: " + imageURI);
             Image image = new Image(imageURI);
-            System.out.println(fileName);
             img.setImage(image);
             this.imagePath = "assets/images/" + fileName;  
         } catch (IOException e) {
@@ -147,7 +147,6 @@ private void actionLoadImage() {
 
         ArrayList<HashMap<String, Object>> result = db.query(sql);
         
-        System.out.println("Resultado de la consulta: " + result);
         return result;
     }
 
@@ -187,14 +186,14 @@ private void actionLoadImage() {
             preuNou = Float.parseFloat(preu.getText());
             pagsNou = Integer.parseInt(pags.getText());
         } catch (NumberFormatException e) {
-            mostrarAlerta("El preu i les pàgines han de ser valors numèrics vàlids.");
+            mostrarAlerta("El preu o les pàgines han de ser valors numèrics vàlids.");
             return null;
         }
     
         try {
             LocalDate.parse(dataPartit);
         } catch (DateTimeParseException e) {
-            mostrarAlerta("La data de publicació no és vàlida. Format esperat: YYYY-MM-DD.");
+            mostrarAlerta("La data de publicació no és vàlida.");
             return null;
         }
     
@@ -215,5 +214,12 @@ private void actionLoadImage() {
         alert.show();
     }
     
-   
+    private static void mostrarMisstage(String missatge) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION); 
+    alert.setTitle("Información");
+    alert.setHeaderText(null);
+    alert.setContentText(missatge);
+    alert.show();
+}
+
 }

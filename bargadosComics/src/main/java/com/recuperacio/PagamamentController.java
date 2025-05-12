@@ -35,30 +35,34 @@ public class PagamamentController implements Initializable {
         String fechaExpiracion = expiryDateField.getText().trim();
         String cvv = cvvField.getText().trim();
         String email = emailField.getText().trim();
+        String any = fechaExpiracion.substring(3, 5);
+        int anyInt = Integer.parseInt(any);
 
         if (nombre.isEmpty()) {
-            mostrarAlerta("❌ El nombre no puede estar vacío.");
+            mostrarAlerta("❌ El nom no pot estar buit");
             return false;
         }
 
         if (!numeroTarjeta.matches("\\d{16}")) {
-            mostrarAlerta("❌ El número de tarjeta debe contener 16 dígitos.");
+            mostrarAlerta("❌ Ha de tenir 16 numeros.");
             return false;
         }
 
         if (!fechaExpiracion.matches("(0[1-9]|1[0-2])/\\d{2}")) {
-            mostrarAlerta("❌ Fecha de expiración no válida. Usa el formato MM/YY.");
+            mostrarAlerta("❌ Data d'expiració no valida.");
             return false;
         }
-
+        if (anyInt < 25) {
+            mostrarAlerta("❌ Data d'expiració no valida.");
+            return false;
+        }
         if (!cvv.matches("\\d{3,4}")) {
-            mostrarAlerta("❌ CVV no válido. Debe tener 3 o 4 dígitos.");
+            mostrarAlerta("❌ CVV no valid, ha de tenir 3 o 4 digits");
             return false;
         }
 
-        // Validar email básico
         if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
-            mostrarAlerta("❌ Correo electrónico no válido.");
+            mostrarAlerta("Correu no valid");
             return false;
         }
 
@@ -75,7 +79,6 @@ public class PagamamentController implements Initializable {
             int idUser = (int) result.get(0).get("id_user");
             return idUser;
         } else {
-            mostrarAlerta("❌ No se encontró ningún usuario con ese correo.");
             return -1;
         }
     }
@@ -102,12 +105,11 @@ public void FerCompra() {
         vistaComprasController crtlVistaCompras = (vistaComprasController) UtilsViews.getController("ViewCompras");
         crtlVistaCompras.Tornar();  
 
-        // AHORA SÍ: VACÍAS EL CARRITO
         carritoGlobal.vaciar();
 
-        mostrarAlerta("¡Compra realizada con éxito!");
+        mostrarAlerta("Compra realiztada!");
     } else {
-        mostrarAlerta("No se ha podido realizar la compra.");
+        mostrarAlerta("Error");
     }
 }
 

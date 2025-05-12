@@ -104,7 +104,6 @@ public class ControllerClients {
     }
 
     public void initialize() {
-        System.out.println("Autor cargado: " + nom + " " + cognoms);
     }
 
     public void cargarAutor(String idAutor) {
@@ -115,10 +114,8 @@ public class ControllerClients {
         ArrayList<HashMap<String, Object>> autorData = ObtenirAutor(sql);
         if (!autorData.isEmpty()) {
             PoblarCamps(autorData);
-            mostrarObres(autorId);
-        } else {
-            System.out.println("No se encontraron datos para el autor con ID: " + idAutor);
-        }
+            mostrarObres(autorId);}
+
     }
 
     public ArrayList<HashMap<String, Object>> ObtenirAutor(String sql) {
@@ -140,8 +137,6 @@ public class ControllerClients {
             mail.setText(paisValue.toString());
             passwd.setText(anyValue.toString());
 
-        } else {
-            System.out.println("La consulta no devolvió resultados.");
         }
     }
 }

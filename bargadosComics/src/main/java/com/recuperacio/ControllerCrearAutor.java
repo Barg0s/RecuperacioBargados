@@ -103,7 +103,13 @@ public class ControllerCrearAutor {
         alert.setContentText(missatge);
         alert.show();
     }
-    
+    private static void mostrarMisstage(String missatge) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION); 
+    alert.setTitle("Información");
+    alert.setHeaderText(null);
+    alert.setContentText(missatge);
+    alert.show();
+}
 
 
 
@@ -116,6 +122,8 @@ public class ControllerCrearAutor {
 
         autorDao autorDao = new autorDao();
         autorDao.add(autorNou);
+        mostrarMisstage("Autor creat correctament!");
+        UtilsViews.setView("ViewTaula");
     }
 @FXML
 private void actionLoadImage() {
@@ -141,9 +149,7 @@ private void actionLoadImage() {
 
             // Now, load the image
             String imageURI = targetPath.toUri().toString();  
-            System.out.println("Image URI: " + imageURI);
             Image image = new Image(imageURI);
-            System.out.println(fileName);
             img.setImage(image);
             this.imagePath = "assets/images/" + fileName;  
         } catch (IOException e) {
@@ -156,7 +162,6 @@ private void actionLoadImage() {
 
         ArrayList<HashMap<String, Object>> result = db.query(sql);
         
-        System.out.println("Resultado de la consulta: " + result);
         return result;
     }
 

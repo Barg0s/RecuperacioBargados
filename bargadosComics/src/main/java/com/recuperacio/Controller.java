@@ -52,7 +52,7 @@ public class Controller {
 
     @FXML
     private void goToMainView(ActionEvent event) throws Exception {
-        UtilsViews.setView("ViewTaula");  // Cambiar a la vista principal
+        UtilsViews.setView("ViewTaula"); 
     }
     
     @FXML
@@ -60,7 +60,6 @@ public class Controller {
     //TODO
     
     private void Enrere(ActionEvent event) throws Exception {
-        // Cargar la vista anterior usando FXMLLoader
         UtilsViews.setView("ViewTaula");
     }
 
@@ -107,7 +106,7 @@ private void abrirEditor(ActionEvent event) {
         if (!mangaData.isEmpty()) {
             PoblarCamps(mangaData);
         } else {
-            System.out.println("No se encontraron datos para el manga con ID: " + idManga);
+            System.out.println("No dades: " + idManga);
         }
     }
     
@@ -125,9 +124,7 @@ private void abrirEditor(ActionEvent event) {
             HashMap<String, Object> map = query.get(0);
             
             
-            for (String key : map.keySet()) {
-                System.out.println("Clave encontrada: " + key);
-            }
+
     
             Object titolValue = map.get("titol");
             Object autorComplet = map.get("nom_complet");
@@ -152,12 +149,12 @@ private void abrirEditor(ActionEvent event) {
                 Image image = new Image(imageUrl.toExternalForm());
                 img.setImage(image);
             } else {
-                System.out.println("Error: No se encontró la imagen en la ruta especificada.");
+                System.out.println("No imatge");
             }
             
 
         } else {
-            System.out.println("La consulta no devolvió resultados.");
+            System.out.println("Error");
         }
     }
     

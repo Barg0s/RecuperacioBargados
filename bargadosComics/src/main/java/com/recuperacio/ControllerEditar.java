@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.nio.file.*;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -23,9 +24,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 
 public class ControllerEditar {
@@ -107,25 +107,15 @@ public class ControllerEditar {
     }
     @FXML
     private void actualizarManga(){
-        String Tit = titol.getText();
-        String[] selectedAutor = choiceBox.getSelectionModel().getSelectedItem().split(" ");
 
-        String nomChoiceBox = selectedAutor[0];
-        String cognomChoice = selectedAutor[1];
-        
-        //arreglar lo de autor(quiza poner una choicebox?)
-        Float preuNou = Float.parseFloat(preu.getText());
-        String sinopsiNou = sinopsi.getText();
-        String isbnNou = isbn.getText();
-        int pagsNou = Integer.parseInt(pags.getText());
-        String dataNou = picker.getValue().toString();
         
 
 
 
-        Manga MangaNou = new Manga(Tit, preuNou, nomChoiceBox, cognomChoice , sinopsiNou, isbnNou, dataNou, pagsNou, imagePath);
+        Manga MangaNou = ComprobarValors();
         MangaDao mangaDao = new MangaDao();
         mangaDao.update(mangaId, MangaNou);
+        mostrarMisstage("Manga actualiztat correctament");
     }
 
 @FXML
@@ -180,10 +170,7 @@ private void actionLoadImage() {
             HashMap<String, Object> map = query.get(0);
             
             
-            for (String key : map.keySet()) {
-                System.out.println("Claus:: " + key);
-            }
-    
+
             Object titolValue = map.get("titol");
             Object preuValue = map.get("preu");
             Object sinopsiValue = map.get("sinopsi");
@@ -225,5 +212,71 @@ private void actionLoadImage() {
             PoblarCamps(mangaData);
         }
     }
+    public Manga ComprobarValors() {
+        String tit = titol.getText();
+        String sinopsiNou = sinopsi.getText();
+        String isbnNou = isbn.getText();
+        String dataPartit = picker.getValue().toString();
+        if (tit.isEmpty() || sinopsiNou.isEmpty() || isbnNou.isEmpty() || dataPartit.isEmpty()) {
+            mostrarAlerta("Cap camp pot estar buit.");
+            return null;
+        }
+    
+        String selectedItem = choiceBox.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            mostrarAlerta("L'autor no pot estar buit.");
+            return null;
+        }
+    
+        String[] selectedAutor = selectedItem.split(" ");
+        if (selectedAutor.length < 2) {
+            mostrarAlerta("L'autor ha de tenir nom i cognom.");
+            return null;
+        }
+    
+        String nomChoiceBox = selectedAutor[0];
+        String cognomChoice = selectedAutor[1];
+    
+        if (!isbnNou.matches("\\d{13}")) {
+            mostrarAlerta("L'ISBN ha de tenir exactament 13 dígits numèrics.");
+            return null;
+        }
+    
+        float preuNou;
+        int pagsNou;
+        try {
+            preuNou = Float.parseFloat(preu.getText());
+            pagsNou = Integer.parseInt(pags.getText());
+        } catch (NumberFormatException e) {
+            mostrarAlerta("El preu o les pàgines han de ser valors numèrics vàlids.");
+            return null;
+        }
+    
+        try {
+            LocalDate.parse(dataPartit);
+        } catch (DateTimeParseException e) {
+            mostrarAlerta("La data de publicació no és vàlida.");
+            return null;
+        }
+    
+
+    
+        return new Manga(tit, preuNou, nomChoiceBox, cognomChoice, sinopsiNou, isbnNou, dataPartit, pagsNou, imagePath);
+    }
+    private static void mostrarAlerta(String missatge) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(missatge);
+        alert.show();
+    }
+    
+    private static void mostrarMisstage(String missatge) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION); 
+    alert.setTitle("Información");
+    alert.setHeaderText(null);
+    alert.setContentText(missatge);
+    alert.show();
+}
 
 }

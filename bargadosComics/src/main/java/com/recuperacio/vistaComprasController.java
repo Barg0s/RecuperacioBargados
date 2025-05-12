@@ -90,7 +90,6 @@ public class vistaComprasController {
         
     }
     private void ComprarManga(String titol) {
-        MangaDao mangaDao = new MangaDao();
         AppData db = AppData.getInstance();
     
         String sql = "SELECT * FROM manga WHERE titol = '" + titol + "'";
@@ -123,7 +122,6 @@ public class vistaComprasController {
             );
             String updateSql = "UPDATE stock SET quantitat = quantitat - 1 WHERE id_manga = '" + id + "'";
             db.update(updateSql);
-            int updatedQuantity = mangaDao.ObtenirQuantitatManga(id);
             preuTotal +=Float.parseFloat(preuManga);
     
     
@@ -148,7 +146,7 @@ public class vistaComprasController {
             crtl.carregarView(id);
             
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println("error");
         }
     }
 
