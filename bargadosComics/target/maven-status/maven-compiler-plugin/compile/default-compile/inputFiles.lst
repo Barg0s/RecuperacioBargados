@@ -1,32 +1,32 @@
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerEditar.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Autor.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\autorDao.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Controller.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\stockDao.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Main.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerEditarClients.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerCrearUserAdmin.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Manga.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerTaula.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Dao.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerCrearAutor.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerLogin.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerCrearUser.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Gestiodb.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Carrito.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Persona.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Usuari.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\utils\UtilsViews.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Sessio.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\vistaComprasController.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerClients.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerEditarAutor.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Stock.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerTenda.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerAutor.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\UsuariDao.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\AppData.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\MainController.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerCrearManga.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\PagamamentController.java
-C:\Users\David\Desktop\DAM 1\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\MangaDao.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerEditarClients.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerCrearManga.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Stock.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Gestiodb.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerLogin.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\MainController.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerAutor.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\AppData.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerEditarAutor.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerCrearAutor.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Autor.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerEditar.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Main.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Persona.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\vistaComprasController.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Sessio.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\autorDao.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerTenda.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\MangaDao.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\PagamamentController.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerTaula.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Manga.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Dao.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Carrito.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerClients.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Controller.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\utils\UtilsViews.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerCrearUser.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\Usuari.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\UsuariDao.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\ControllerCrearUserAdmin.java
+C:\Users\david\Desktop\Libreria\RecuperacioBargados\bargadosComics\src\main\java\com\recuperacio\stockDao.java

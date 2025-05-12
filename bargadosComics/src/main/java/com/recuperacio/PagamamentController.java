@@ -36,7 +36,9 @@ public class PagamamentController implements Initializable {
         String cvv = cvvField.getText().trim();
         String email = emailField.getText().trim();
         String any = fechaExpiracion.substring(3, 5);
+        String mes = fechaExpiracion.substring(0, 2);
         int anyInt = Integer.parseInt(any);
+        int mesInt = Integer.parseInt(mes);
 
         if (nombre.isEmpty()) {
             mostrarAlerta("❌ El nom no pot estar buit");
@@ -52,7 +54,7 @@ public class PagamamentController implements Initializable {
             mostrarAlerta("❌ Data d'expiració no valida.");
             return false;
         }
-        if (anyInt < 25) {
+        if (anyInt < 25 || mesInt < 0 || mesInt > 12) {
             mostrarAlerta("❌ Data d'expiració no valida.");
             return false;
         }
@@ -109,8 +111,7 @@ public void FerCompra() {
 
         mostrarAlerta("Compra realiztada!");
     } else {
-        mostrarAlerta("Error");
-    }
+        System.out.println("ERROR");    }
 }
 
 

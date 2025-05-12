@@ -153,7 +153,7 @@ private void actionLoadImage() {
     public Manga ComprobarValors() {
         String tit = titol.getText();
         String sinopsiNou = sinopsi.getText();
-        String isbnNou = isbn.getText();
+        String isbnNou = isbn.getText().replace("-", "");
         String dataPartit = picker.getValue().toString();
         if (tit.isEmpty() || sinopsiNou.isEmpty() || isbnNou.isEmpty() || dataPartit.isEmpty()) {
             mostrarAlerta("Cap camp pot estar buit.");
